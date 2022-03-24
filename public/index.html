@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en_US">
 <head>
 
 <link
@@ -14,7 +14,7 @@ href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
 />
 <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 <meta charset="UTF-8">
-<title>Emphatic Text Bot</title>
+<title>EmpaChat</title>
 
 <style>
  
@@ -82,6 +82,7 @@ body {
 
 .complete {
   color: white;
+  font-weight: bold;
 }
 .username{
   font-weight: bold;
@@ -89,17 +90,20 @@ body {
 }
 
 .messages {
+  justify-content: center;
   margin-left: 0px;
   padding-left: 0px;
   list-style-type: none;
   bottom:20px;
+  
 }
 .messages li{
   padding: 3px;
-  background-color: #0096FF;
+  /*background-color: #0096FF;*/
   border-radius: 10px;
   margin-top: 5px;
   color:black;
+  font-size: 20px;
 }
 
 
@@ -145,27 +149,27 @@ body {
   margin-left: 5px;
 }
 .Happy {
-
+  background-color: #28ea1e;      
 }
 
 .Sad {
-
+  background-color:  #5368ef ;
 }
 
 .Angry {
-
+  background-color:  #b22143 ;
 }
 
 .Neutral {
-
+  background-color: #96908b;
 }
 
 .Surprise {
-
+  background-color: #ea1ee3;
 }
 
 .Disgust {
- 
+  background-color: orange;
 }
 
 .hide {
@@ -212,7 +216,7 @@ body {
 
   <div id="age" class="hide">Age: -</div>
   <div id="gender" class="hide">Gender: -</div>
-  <div id="emotion" class="hide"  >Emotion: -</div>
+  <div id="emotion" class="hide"  >Happy</div>
   <div id="features" class="hide">Face Features: -</div>
   <div id="arousal" class="hide">Arrousal: -</div>
   <div id="Uncomfortable" class="hide">Uncomfortable: -</div>
@@ -247,18 +251,19 @@ body {
   const arr2_div = document.querySelector("#Excited");
   const arr3_div = document.querySelector("#Satisfied");
   
-  window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
+  /*8window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
    age_div.innerHTML = 'Age: ' + evt.detail.output.numericAge;
   });
   
   window.addEventListener(CY.modules().FACE_GENDER.eventName, (evt) => {
    gen_div.innerHTML = 'Gender: ' + evt.detail.output.mostConfident;
-  });
+  });*/
   
   window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
    emo_div.innerHTML = evt.detail.output.dominantEmotion;
   });
-  window.addEventListener(CY.modules().FACE_FEATURES.eventName, (evt) => {
+
+  /*window.addEventListener(CY.modules().FACE_FEATURES.eventName, (evt) => {
     fet_div.innerHTML = 'Attractivness: ' + evt.detail.output.features.Attractive;
   });
 
@@ -273,7 +278,7 @@ body {
   });
   window.addEventListener(CY.modules().FACE_AROUSAL_VALENCE.eventName, (evt) => {
     arr3_div.innerHTML = 'Satisfied: ' + evt.detail.output.affects38.Satisfied;
-  });
+  });*/
   
   </script>
 </body>
