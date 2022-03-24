@@ -173,7 +173,7 @@ $(function () {
     // Server schickt "login": Anmeldung war erfolgreich
     socket.on('login', function (data) {
     connected = true;
-    log("Willkommen beim Chat!");
+    log("Welcome to EmpaChat!");
     });
     
     // Server schickt "new message": Neue Nachricht zum Chat-Protokoll hinzufügen
