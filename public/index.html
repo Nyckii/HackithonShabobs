@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Emphatic Text Bot</title>
+
+<style>
+ 
+/* Globale Schriftart setzen (weniger "schnörkelig") */
+body {
+  font-family: sans-serif;
+}
+
+.bottomInput {
+  position: relative;
+   width: 100%;
+   bottom: 40px;
+      /* Height of the footer */
+   padding: none;
+   outline: none;
+
+}
+
+.inputMessage {
+  background-color: #333333;
+  color: white;
+  width: 98%;
+  top:20px;
+}
+.usernameInput {
+  color: white;
+  background-color: #333333;
+  width: 20%;
+  top: 20px;
+}
+
+    
+/* Chat-Seite initial ausblenden */
+.chat.page {
+  display: none;
+}
+
+
+.unfinished {
+  color:grey;
+}
+
+.complete {
+  color: white;
+}
+.username{
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.happy {
+  background-color: green;
+}
+.messages {
+  list-style-type: none;
+  padding: 2px;
+}
+.messages li{
+  border: 2px solid black;
+  padding: 3px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+
+/* Format für Benutzernamen bei der Ausgabe einer Chat-Nachricht */
+
+.otherUser{
+  text-align: left;
+  background-color: #333333;
+  width: 50%;
+  font-size: 15px;
+
+}
+
+
+.currentUser{
+  text-align: right;
+  position: relative;
+  background-color: #333333;
+  left: 52%;
+  width: 47%;
+  font-size: 15px;
+
+}
+.background {
+  overflow-y: scroll; 
+  overflow-x: hidden;
+  height: 400px;
+  width: 100%;
+  background-color: #333333;
+}
+.log {
+  position: relative;
+  color: red;
+  font-size: 15px;
+  text-align: center;
+}
+.Happy {
+  background-color: green;
+}
+
+.Sad {
+  background-color: blue;
+}
+
+.Angry {
+  background-color: red;
+}
+
+.Neutral {
+  background-color: grey;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+</style>
+</head>
+<body>
+<!-- Login-Seite -->
+<div class="login page">
+<h3 class="title">Tell me your name</h3>
+<input class="usernameInput" type="text" maxlength="14" />
+
+</div>
+
+<!-- Chat-Seite (initial ausgeblendet) -->
+<div class="chat page">
+<h3 class="title">Chatting</h3>
+<div class="background"><ul id ="list" class="messages" ></ul></div>
+
+<h3 class="bottomInput"><input class="inputMessage" placeholder="Type here..." /></h3>
+
+</div>
+
+
+  <div id="age" class="hide">Age: -</div>
+  <div id="gender" class="hide">Gender: -</div>
+  <div id="emotion" class="hide">Emotion: -</div>
+
+
+<!-- Programmcode auf der Client-Seite -->
+<script src="https://sdk.morphcast.com/mphtools/v1.0/mphtools.js"></script>
+<script src="https://ai-sdk.morphcast.com/v1.14/ai-sdk.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/main.js"></script>
+
+
+<script>
+  CY.loader()
+     .licenseKey("a49a0cf63e37382813f95b8bdea40c304cd3b835586f")
+     .addModule(CY.modules().FACE_AGE.name)
+     .addModule(CY.modules().FACE_GENDER.name)
+     .addModule(CY.modules().FACE_EMOTION.name)
+     .load()
+     .then(({ start, stop }) => start());
+  
+  const age_div = document.querySelector("#age");
+  const gen_div = document.querySelector("#gender");
+  const emo_div = document.querySelector("#emotion");
+  
+  window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
+   age_div.innerHTML = 'Age: ' + evt.detail.output.numericAge;
+  });
+  
+  window.addEventListener(CY.modules().FACE_GENDER.eventName, (evt) => {
+   gen_div.innerHTML = 'Gender: ' + evt.detail.output.mostConfident;
+  });
+  
+  window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
+   emo_div.innerHTML = evt.detail.output.dominantEmotion;
+  });
+  
+  </script>
+</body>
+</html>
