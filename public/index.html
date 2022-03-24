@@ -28,6 +28,8 @@ body {
   color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
 }
 
+.main
+
 .bottomInput {
   position: relative;
    width: 100%;
@@ -50,10 +52,20 @@ body {
 
 }
 .usernameInput {
-  color: white;
-  background-color: #333333;
-  width: 20%;
-  top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    width: 96%;
+    border: none; 
+    outline: none; 
+    border-radius: 4px;
+    background: #dd3e54;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #6be585, #dd3e54);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #6be585, #dd3e54); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    
 }
 
     
@@ -170,21 +182,25 @@ body {
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
 }
+.title {
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 50px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+
+}
 
 </style>
 </head>
 <body>
 <!-- Login-Seite -->
 <div class="login page">
-<h2 class="maintitle">Hello and welcome to our <span>empathic</span> Chat Bot</h2>
-<h3 class="title">Tell me your name</h3>
+<h2 class="maintitle">Hello and welcome to our <span>Empathic</span> Chat Room</h2>
+<h3 class="title">In this experiment, we work with a facial expression recognition, to continue, enter your nickname</h3>
 <input class="usernameInput" type="text" maxlength="14" />
 
 </div>
 
 <!-- Chat-Seite (initial ausgeblendet) -->
 <div class="chat page">
-<h3 class="title">Chatting</h3>
+<h3 >Chatting</h3>
 <div class="background", id="simple-bar"><ul id ="list" class="messages" ></ul></div>
 <h3 class="bottomInput"><input class="inputMessage" placeholder="Type here..." /></h3>
 
