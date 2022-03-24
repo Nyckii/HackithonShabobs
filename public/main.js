@@ -16,10 +16,15 @@ $(function () {
     
     var $currentInput = $usernameInput.focus();
     var myElement = document.getElementById('simple-bar');
-    new SimpleBar(myElement, { autoHide: true });
+    new SimpleBar(myElement, { autoHide: false });
     var socket = io();
 
+    function updateScroll(){
+      var element = document.getElementById('list');
+      element.scrollTop = element.scrollHeight;
+    }
 
+    setInterval(updateScroll,1000);
     
     // Tastendruck behandeln
     $window.keydown(function (event) {
@@ -81,7 +86,7 @@ $(function () {
     
       // Chat-Nachricht zum Chatprotokoll hinzufügen
       removeItem({ username : username});
-      addChatMessage({ username: username, message: message });
+      addChatMessage({ username: username, message: message, emotion: emo });
           
       // Server über neue Nachricht informieren. Der Server wird die Nachricht
       // an alle anderen Clients verteilen.
@@ -89,7 +94,7 @@ $(function () {
     }
     }
 
-    function updateMessage(data) {
+    function updateMessage() {
       // Nachricht aus Eingabefeld holen (ohne Leerzeichen am Anfang oder Ende).
       var message = $inputMessage.val();
       
@@ -98,11 +103,11 @@ $(function () {
       
         // Chat-Nachricht zum Chatprotokoll hinzufügen
         removeItem({ username : username});
-        addTmpMessage({ username: username, message: message});
+        addTmpMessage({ username: username, message: message, emotion: emo});
             
         // Server über neue Nachricht informieren. Der Server wird die Nachricht
         // an alle anderen Clients verteilen.
-        socket.emit('update message', message);
+        socket.emit('update message', message, emo);
       }
       }
 
@@ -123,10 +128,10 @@ $(function () {
     
     // Chat-Nachricht zum Chat-Protokoll anfügen
     function addChatMessage(data) {
-    var $gifDiv = $('<img src="'+ emo.innerHTML + '.gif", class="emotionImages">');
+    var $gifDiv = $('<img src="'+ data.emotion.innerHTML + '.gif", class="emotionImages">');
     var $usernameDiv = $('<span class="username"/>').text(data.username);
     var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
-    var $messageDiv = $('<li class="message complete ' + emo.innerHTML + '"/>').append($gifDiv, $usernameDiv, $messageBodyDiv);
+    var $messageDiv = $('<li class="message complete ' + data.emotion.innerHTML + '"/>').append($gifDiv, $usernameDiv, $messageBodyDiv);
     $messages.append($messageDiv);
     if(data.username == username){
       $messageDiv.addClass("currentUser");
@@ -137,10 +142,10 @@ $(function () {
 
     // Chat-Nachricht zum Chat-Protokoll anfügen
     function addTmpMessage(data) {
-      var $gifDiv = $('<img src="'+ emo.innerHTML + '.gif", class="emotionImages">');
+      var $gifDiv = $('<img src="'+ data.emotion.innerHTML + '.gif", class="emotionImages">');
       var $usernameDiv = $('<span class="username"/>').text(data.username);
       var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
-      var $messageDiv = $('<li class="message unfinished ' + emo.innerHTML + '", id="unsent_' + data.username+ '"\>').append($gifDiv, $usernameDiv, $messageBodyDiv);
+      var $messageDiv = $('<li class="message unfinished ' + data.emotion.innerHTML + '", id="unsent_' + data.username+ '"\>').append($gifDiv, $usernameDiv, $messageBodyDiv);
       $messages.append($messageDiv);
 
       if(data.username == username){
