@@ -1,14 +1,18 @@
 <!doctype html>
-<html lang="en_US">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Empathetic Chat</title>
+<title>Emphatic Text Bot</title>
 
 <style>
  
+
 /* Globale Schriftart setzen (weniger "schnörkelig") */
 body {
   font-family: sans-serif;
+}
+.maintitle {
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
 }
 
 .bottomInput {
@@ -61,7 +65,7 @@ body {
   padding: 2px;
 }
 .messages li{
-  border: 2px solid black;
+
   padding: 3px;
   border-radius: 5px;
   margin-top: 5px;
@@ -97,36 +101,61 @@ body {
 }
 .log {
   position: relative;
-  color: red;
+  color: white;
   font-size: 15px;
   text-align: center;
 }
 .Happy {
-  background-color: green;
+  border-style: solid;
+  border-color: #89ffcc;
+  border-width: 2px;
+  
 }
 
 .Sad {
-  background-color: blue;
+  border-style: solid;
+  border-color: #54fffb;
+  border-width: 2px;
 }
 
 .Angry {
-  background-color: red;
+  border-style: solid;
+  border-color: #ff9a55;
+  border-width: 2px;
 }
 
 .Neutral {
-  background-color: #333333;
+  border-style: solid;
+  border-color: #D3D3D3;
+  border-width: 2px;
 }
 
 .Surprise {
-  background-color: blueviolet;
+  border-style: solid;
+  border-color: #e7b2ff;
+  border-width: 2px;
+
 }
 
 .Disgust {
-  background-color: maroon;
+  border-style: solid;
+  border-color: #8B0000;
+  border-width: 2px;
 }
 
 .hide {
   visibility: hidden;
+}
+.maintitle span{
+  background: #dd3e54;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6be585, #dd3e54);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6be585, #dd3e54); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 </style>
@@ -134,6 +163,7 @@ body {
 <body>
 <!-- Login-Seite -->
 <div class="login page">
+<h2 class="maintitle">Hello and welcome to our <span>empathic</span> Chat Bot</h2>
 <h3 class="title">Tell me your name</h3>
 <input class="usernameInput" type="text" maxlength="14" />
 
@@ -151,12 +181,12 @@ body {
 
   <div id="age" class="hide">Age: -</div>
   <div id="gender" class="hide">Gender: -</div>
-  <div id="emotion"   >Emotion: -</div>
+  <div id="emotion" class="hide"  >Emotion: -</div>
   <div id="features" class="hide">Face Features: -</div>
-  <div id="arousal" class="hid">Arrousal: -</div>
-  <div id="Uncomfortable" class="hid">Uncomfortable: -</div>
-  <div id="Excited" class="hid">Excited: -</div>
-  <div id="Satisfied" class="hid">Satisfied: -</div>
+  <div id="arousal" class="hide">Arrousal: -</div>
+  <div id="Uncomfortable" class="hide">Uncomfortable: -</div>
+  <div id="Excited" class="hide">Excited: -</div>
+  <div id="Satisfied" class="hide">Satisfied: -</div>
 
 
 <!-- Programmcode auf der Client-Seite -->
