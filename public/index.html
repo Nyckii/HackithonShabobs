@@ -117,6 +117,14 @@ body {
   background-color: #333333;
 }
 
+.Surprise {
+  background-color: blueviolet;
+}
+
+.Disgust {
+  background-color: maroon;
+}
+
 .hide {
   visibility: hidden;
 }
@@ -143,7 +151,12 @@ body {
 
   <div id="age" class="hide">Age: -</div>
   <div id="gender" class="hide">Gender: -</div>
-  <div id="emotion" class="hide">Emotion: -</div>
+  <div id="emotion"   >Emotion: -</div>
+  <div id="features" class="hide">Face Features: -</div>
+  <div id="arousal" class="hid">Arrousal: -</div>
+  <div id="Uncomfortable" class="hid">Uncomfortable: -</div>
+  <div id="Excited" class="hid">Excited: -</div>
+  <div id="Satisfied" class="hid">Satisfied: -</div>
 
 
 <!-- Programmcode auf der Client-Seite -->
@@ -166,6 +179,11 @@ body {
   const age_div = document.querySelector("#age");
   const gen_div = document.querySelector("#gender");
   const emo_div = document.querySelector("#emotion");
+  const fet_div = document.querySelector("#features");
+  const arr_div = document.querySelector("#arousal");
+  const arr1_div = document.querySelector("#Uncomfortable");
+  const arr2_div = document.querySelector("#Excited");
+  const arr3_div = document.querySelector("#Satisfied");
   
   window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
    age_div.innerHTML = 'Age: ' + evt.detail.output.numericAge;
@@ -177,6 +195,22 @@ body {
   
   window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
    emo_div.innerHTML = evt.detail.output.dominantEmotion;
+  });
+  window.addEventListener(CY.modules().FACE_FEATURES.eventName, (evt) => {
+    fet_div.innerHTML = 'Attractivness: ' + evt.detail.output.features.Attractive;
+  });
+
+  window.addEventListener(CY.modules().FACE_AROUSAL_VALENCE.eventName, (evt) => {
+    arr_div.innerHTML = 'Annoyed: ' + evt.detail.output.affects38.Annoyed;
+  });
+  window.addEventListener(CY.modules().FACE_AROUSAL_VALENCE.eventName, (evt) => {
+    arr1_div.innerHTML = 'Uncomfortable: ' + evt.detail.output.affects38.Uncomfortable;
+  });
+  window.addEventListener(CY.modules().FACE_AROUSAL_VALENCE.eventName, (evt) => {
+    arr2_div.innerHTML = 'Excited: ' + evt.detail.output.affects38.Excited;
+  });
+  window.addEventListener(CY.modules().FACE_AROUSAL_VALENCE.eventName, (evt) => {
+    arr3_div.innerHTML = 'Satisfied: ' + evt.detail.output.affects38.Satisfied;
   });
   
   </script>
