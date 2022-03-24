@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en_US">
+<html lang="de">
 <head>
 
 <link
@@ -14,14 +14,18 @@ href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
 />
 <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 <meta charset="UTF-8">
-<title>Empathetic Chat</title>
+<title>Emphatic Text Bot</title>
 
 <style>
  
+
 /* Globale Schriftart setzen (weniger "schnörkelig") */
 body {
   font-family: sans-serif;
   overflow-y: hidden;
+}
+.maintitle {
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
 }
 
 .bottomInput {
@@ -116,8 +120,7 @@ body {
 }
 .log {
   position: relative;
-  color: black;
-  font-weight: bold;
+  color: white;
   font-size: 15px;
   text-align: center;
 }
@@ -149,11 +152,22 @@ body {
 }
 
 .Disgust {
-
+ 
 }
 
 .hide {
   visibility: hidden;
+}
+.maintitle span{
+  background: #dd3e54;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6be585, #dd3e54);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6be585, #dd3e54); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 </style>
@@ -161,6 +175,7 @@ body {
 <body>
 <!-- Login-Seite -->
 <div class="login page">
+<h2 class="maintitle">Hello and welcome to our <span>empathic</span> Chat Bot</h2>
 <h3 class="title">Tell me your name</h3>
 <input class="usernameInput" type="text" maxlength="14" />
 
@@ -177,7 +192,7 @@ body {
 
   <div id="age" class="hide">Age: -</div>
   <div id="gender" class="hide">Gender: -</div>
-  <div id="emotion" class="hide"   >Emotion: -</div>
+  <div id="emotion" class="hide"  >Emotion: -</div>
   <div id="features" class="hide">Face Features: -</div>
   <div id="arousal" class="hide">Arrousal: -</div>
   <div id="Uncomfortable" class="hide">Uncomfortable: -</div>
