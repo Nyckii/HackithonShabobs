@@ -78,11 +78,12 @@ body {
 
 .unfinished {
   color:grey;
+  font-style: italic;
 }
 
 .complete {
   color: white;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 .username{
   font-weight: bold;
@@ -91,8 +92,8 @@ body {
 
 .messages {
   justify-content: center;
-  margin-left: 0px;
-  padding-left: 0px;
+  margin-left: 5px;
+  padding-left: 5px;
   list-style-type: none;
   bottom:20px;
   
@@ -102,8 +103,10 @@ body {
   /*background-color: #0096FF;*/
   border-radius: 10px;
   margin-top: 5px;
+  padding-left: 5px;
   color:black;
   font-size: 20px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -143,33 +146,33 @@ body {
 }
 
 .emotionImages {
-  height: 30px;
+  height: 45px;
   width: auto;
-  padding: 3px;
+  padding: 10px;
   margin-left: 5px;
 }
 .Happy {
-  background-color: #28ea1e;      
+  background-color: #40E0D0;      
 }
 
 .Sad {
-  background-color:  #5368ef ;
+  background-color:  #6495ED ;
 }
 
 .Angry {
-  background-color:  #b22143 ;
+  background-color:  #DE3163 ;
 }
 
 .Neutral {
-  background-color: #96908b;
+  background-color: #CCCCFF;
 }
 
 .Surprise {
-  background-color: #ea1ee3;
+  background-color: #DFFF00;
 }
 
 .Disgust {
-  background-color: orange;
+  background-color: #FFBF00; 
 }
 
 .hide {
@@ -196,10 +199,7 @@ body {
 <body>
 <!-- Login-Seite -->
 <div class="login page">
-<img src="logo.jpg" width="200" height="185"/>
-<h2 class="maintitle"><span> <img src="logo.jpg" width="200" height="185"/> EmpaChat</span></h2>
-
-
+<h2 class="maintitle"><span>EmpaChat</span></h2>
 
 <input class="usernameInput" type="text" maxlength="14" />
 
@@ -207,7 +207,7 @@ body {
 
 <!-- Chat-Seite (initial ausgeblendet) -->
 <div class="chat page">
-<h3 >Chatting</h3>
+<h3>Welcome to <b>EmpaChat</b></h3>
 <div class="background", id="simple-bar"><ul id ="list" class="messages" ></ul></div>
 <h3 class="bottomInput"><input class="inputMessage" placeholder="Type here..." /></h3>
 

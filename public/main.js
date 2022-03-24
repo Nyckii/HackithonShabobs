@@ -81,7 +81,7 @@ $(function () {
   
     // Chat-Nachricht zum Chatprotokoll hinzufügen
     removeItem({ username : username});
-    addChatMessage({ username: username, message: message });
+    addChatMessage({ username: username, message: message, emo: emo });
         
     // Server über neue Nachricht informieren. Der Server wird die Nachricht
     // an alle anderen Clients verteilen.
@@ -111,7 +111,7 @@ $(function () {
       if (connected) {
         // Chat-Nachricht zum Chatprotokoll hinzufügen
         removeItem({ username : data.username})
-        addTmpMessage({ username: data.username, message: data.message });
+        addTmpMessage({ username: data.username, message: data.message, emo: data.emo});
       }
       }
   
@@ -123,10 +123,11 @@ $(function () {
   
   // Chat-Nachricht zum Chat-Protokoll anfügen
   function addChatMessage(data) {
-  var $gifDiv = $('<img src="'+ emo.innerHTML + '.gif", class="emotionImages">');
+  
+  var $gifDiv = $('<img src="'+ data.emo.innerHTML + '.gif", class="emotionImages">');
   var $usernameDiv = $('<span class="username"/>').text(data.username);
   var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
-  var $messageDiv = $('<li class="message complete ' + emo.innerHTML + '"/>').append($gifDiv, $usernameDiv, $messageBodyDiv);
+  var $messageDiv = $('<li class="message complete ' + data.emo.innerHTML + '"/>').append($gifDiv, $usernameDiv, $messageBodyDiv);
   $messages.append($messageDiv);
   if(data.username == username){
     $messageDiv.addClass("currentUser");
@@ -137,6 +138,7 @@ $(function () {
 
   // Chat-Nachricht zum Chat-Protokoll anfügen
   function addTmpMessage(data) {
+    console.log(data);
     var $gifDiv = $('<img src="'+ emo.innerHTML + '.gif", class="emotionImages">');
     var $usernameDiv = $('<span class="username"/>').text(data.username);
     var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
@@ -168,7 +170,7 @@ $(function () {
   // Server schickt "login": Anmeldung war erfolgreich
   socket.on('login', function (data) {
   connected = true;
-  log("Willkommen beim Chat!");
+  /*log("Willkommen beim Chat!");*/
   });
   
   // Server schickt "new message": Neue Nachricht zum Chat-Protokoll hinzufügen
