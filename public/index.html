@@ -9,6 +9,7 @@
 /* Globale Schriftart setzen (weniger "schnörkelig") */
 body {
   font-family: sans-serif;
+  overflow-y: hidden;
 }
 
 .bottomInput {
@@ -22,10 +23,11 @@ body {
 }
 
 .inputMessage {
-  background-color: #333333;
-  color: white;
+  background-color: white;
+  color: black;
   width: 98%;
   top:20px;
+
 }
 .usernameInput {
   color: white;
@@ -53,18 +55,15 @@ body {
   margin-right: 5px;
 }
 
-.happy {
-  background-color: green;
-}
 .messages {
   list-style-type: none;
-  padding: 2px;
+  bottom:20px;
 }
 .messages li{
-  border: 2px solid black;
   padding: 3px;
   border-radius: 5px;
   margin-top: 5px;
+  color:black;
 }
 
 
@@ -72,37 +71,40 @@ body {
 
 .otherUser{
   text-align: left;
-  background-color: #333333;
   width: 50%;
-  font-size: 15px;
-
 }
 
 
 .currentUser{
-  text-align: right;
+  text-align: left;
   position: relative;
-  background-color: #333333;
   left: 52%;
   width: 47%;
-  font-size: 15px;
 
 }
 .background {
   overflow-y: scroll; 
   overflow-x: hidden;
-  height: 400px;
+  height: 600px;
   width: 100%;
-  background-color: #333333;
+  background-color: white;
 }
 .log {
   position: relative;
-  color: red;
+  color: black;
+  font-weight: bold;
   font-size: 15px;
   text-align: center;
 }
+
+.emotionImages {
+  height: 30px;
+  width: auto;
+  padding: 3px;
+  margin-left: 5px;
+}
 .Happy {
-  background-color: green;
+  border: 3px solid green;
 }
 
 .Sad {
@@ -143,7 +145,6 @@ body {
 <div class="chat page">
 <h3 class="title">Chatting</h3>
 <div class="background"><ul id ="list" class="messages" ></ul></div>
-
 <h3 class="bottomInput"><input class="inputMessage" placeholder="Type here..." /></h3>
 
 </div>
@@ -151,12 +152,12 @@ body {
 
   <div id="age" class="hide">Age: -</div>
   <div id="gender" class="hide">Gender: -</div>
-  <div id="emotion"   >Emotion: -</div>
+  <div id="emotion" class="hide"   >Emotion: -</div>
   <div id="features" class="hide">Face Features: -</div>
-  <div id="arousal" class="hid">Arrousal: -</div>
-  <div id="Uncomfortable" class="hid">Uncomfortable: -</div>
-  <div id="Excited" class="hid">Excited: -</div>
-  <div id="Satisfied" class="hid">Satisfied: -</div>
+  <div id="arousal" class="hide">Arrousal: -</div>
+  <div id="Uncomfortable" class="hide">Uncomfortable: -</div>
+  <div id="Excited" class="hide">Excited: -</div>
+  <div id="Satisfied" class="hide">Satisfied: -</div>
 
 
 <!-- Programmcode auf der Client-Seite -->
