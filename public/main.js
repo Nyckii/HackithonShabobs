@@ -15,7 +15,8 @@ $(function () {
     var connected = false;                    // Kennzeichen ob angemeldet
     
     var $currentInput = $usernameInput.focus();
-
+    var myElement = document.getElementById('simple-bar');
+    new SimpleBar(myElement, { autoHide: true });
     var socket = io();
 
 
