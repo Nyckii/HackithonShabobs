@@ -24,8 +24,13 @@ body {
   font-family: sans-serif;
   overflow-y: hidden;
 }
+
+.gradient {
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+}
+
 .maintitle {
-  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 200px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
+  color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 130px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
 }
 
 .main
@@ -178,6 +183,19 @@ body {
 .hide {
   visibility: hidden;
 }
+
+.gradient span {
+  background: #dd3e54;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6be585, #dd3e54);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6be585, #dd3e54); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
 .maintitle span{
   background: #dd3e54;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #6be585, #dd3e54);  /* Chrome 10-25, Safari 5.1-6 */
@@ -207,7 +225,7 @@ body {
 
 <!-- Chat-Seite (initial ausgeblendet) -->
 <div class="chat page">
-<h3>Welcome to <b>EmpaChat</b></h3>
+<h3 class = gradient>Welcome to <b><span>EmpaChat</span></b></h3>
 <div class="background", id="simple-bar"><ul id ="list" class="messages" ></ul></div>
 <h3 class="bottomInput"><input class="inputMessage" placeholder="Type here..." /></h3>
 
