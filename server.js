@@ -11,7 +11,7 @@ var io = require('socket.io')(server);
 var port = process.env.PORT || 3000;
 server.listen(port, function () {
 // Wir geben einen Hinweis aus, dass der Webserer läuft.
-console.log('Webserver läuft und hört auf Port %d', port);
+console.log('Webserver listening on port %d', port);
 });
 
 // Hier teilen wir express mit, dass die öffentlichen HTML-Dateien
