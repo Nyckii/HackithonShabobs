@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de">
+<html lang="en_US">
 <head>
 
 <link
@@ -82,6 +82,7 @@ body {
 
 .complete {
   color: white;
+  font-weight: bold;
 }
 .username{
   font-weight: bold;
@@ -247,18 +248,19 @@ body {
   const arr2_div = document.querySelector("#Excited");
   const arr3_div = document.querySelector("#Satisfied");
   
-  window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
+  /*8window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
    age_div.innerHTML = 'Age: ' + evt.detail.output.numericAge;
   });
   
   window.addEventListener(CY.modules().FACE_GENDER.eventName, (evt) => {
    gen_div.innerHTML = 'Gender: ' + evt.detail.output.mostConfident;
-  });
+  });*/
   
   window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
    emo_div.innerHTML = evt.detail.output.dominantEmotion;
   });
-  window.addEventListener(CY.modules().FACE_FEATURES.eventName, (evt) => {
+
+  /*window.addEventListener(CY.modules().FACE_FEATURES.eventName, (evt) => {
     fet_div.innerHTML = 'Attractivness: ' + evt.detail.output.features.Attractive;
   });
 
@@ -273,7 +275,7 @@ body {
   });
   window.addEventListener(CY.modules().FACE_AROUSAL_VALENCE.eventName, (evt) => {
     arr3_div.innerHTML = 'Satisfied: ' + evt.detail.output.affects38.Satisfied;
-  });
+  });*/
   
   </script>
 </body>
