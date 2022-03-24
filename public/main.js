@@ -136,9 +136,10 @@ $(function () {
 
     // Chat-Nachricht zum Chat-Protokoll anfügen
     function addTmpMessage(data) {
+      var $gifDiv = $('<img src="'+ emo.innerHTML + '.gif", class="emotionImages">');
       var $usernameDiv = $('<span class="username"/>').text(data.username);
       var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
-      var $messageDiv = $('<li class="message unfinished ' + emo.innerHTML + '", id="unsent_' + data.username+ '"\>').append($usernameDiv, $messageBodyDiv);
+      var $messageDiv = $('<li class="message unfinished ' + emo.innerHTML + '", id="unsent_' + data.username+ '"\>').append($gifDiv, $usernameDiv, $messageBodyDiv);
       $messages.append($messageDiv);
 
       if(data.username == username){
