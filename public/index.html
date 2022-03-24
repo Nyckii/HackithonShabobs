@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="de">
 <head>
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+/>
+<script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+<!-- or -->
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 <meta charset="UTF-8">
 <title>Emphatic Text Bot</title>
 
@@ -10,6 +22,7 @@
 /* Globale Schriftart setzen (weniger "schnörkelig") */
 body {
   font-family: sans-serif;
+  overflow-y: hidden;
 }
 .maintitle {
   color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 100px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;
@@ -26,10 +39,15 @@ body {
 }
 
 .inputMessage {
-  background-color: #333333;
-  color: white;
-  width: 98%;
-  top:20px;
+  border-radius: 18px;
+  padding: 10px;
+  position: fixed;
+  background-color: white;
+  color: black;
+  height:30px;
+  width: 97%;
+  bottom:20px;
+
 }
 .usernameInput {
   color: white;
@@ -57,18 +75,20 @@ body {
   margin-right: 5px;
 }
 
-.happy {
-  background-color: green;
-}
 .messages {
   list-style-type: none;
-  padding: 2px;
+  bottom:20px;
 }
 .messages li{
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ba0dbeb8b6868af160ed29143eb795a086b9eaf
   padding: 3px;
-  border-radius: 5px;
+  background-color: #0096FF;
+  border-radius: 10px;
   margin-top: 5px;
+  color:black;
 }
 
 
@@ -76,28 +96,29 @@ body {
 
 .otherUser{
   text-align: left;
-  background-color: #333333;
   width: 50%;
-  font-size: 15px;
-
 }
 
 
 .currentUser{
-  text-align: right;
+  text-align: left;
   position: relative;
-  background-color: #333333;
   left: 52%;
-  width: 47%;
-  font-size: 15px;
+  width: 47.6%;
 
 }
+
+.background::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
 .background {
   overflow-y: scroll; 
   overflow-x: hidden;
-  height: 400px;
+  height: 80%;
+  max-height: 500px;
   width: 100%;
-  background-color: #333333;
+  background-color: white;
 }
 .log {
   position: relative;
@@ -105,35 +126,30 @@ body {
   font-size: 15px;
   text-align: center;
 }
+
+.emotionImages {
+  height: 30px;
+  width: auto;
+  padding: 3px;
+  margin-left: 5px;
+}
 .Happy {
-  border-style: solid;
-  border-color: #89ffcc;
-  border-width: 2px;
-  
+
 }
 
 .Sad {
-  border-style: solid;
-  border-color: #54fffb;
-  border-width: 2px;
+
 }
 
 .Angry {
-  border-style: solid;
-  border-color: #ff9a55;
-  border-width: 2px;
+
 }
 
 .Neutral {
-  border-style: solid;
-  border-color: #D3D3D3;
-  border-width: 2px;
+
 }
 
 .Surprise {
-  border-style: solid;
-  border-color: #e7b2ff;
-  border-width: 2px;
 
 }
 
@@ -172,8 +188,7 @@ body {
 <!-- Chat-Seite (initial ausgeblendet) -->
 <div class="chat page">
 <h3 class="title">Chatting</h3>
-<div class="background"><ul id ="list" class="messages" ></ul></div>
-
+<div class="background", id="simple-bar"><ul id ="list" class="messages" ></ul></div>
 <h3 class="bottomInput"><input class="inputMessage" placeholder="Type here..." /></h3>
 
 </div>
@@ -181,7 +196,11 @@ body {
 
   <div id="age" class="hide">Age: -</div>
   <div id="gender" class="hide">Gender: -</div>
+<<<<<<< HEAD
   <div id="emotion" class="hide"  >Emotion: -</div>
+=======
+  <div id="emotion" class="hide"   >Emotion: -</div>
+>>>>>>> 4ba0dbeb8b6868af160ed29143eb795a086b9eaf
   <div id="features" class="hide">Face Features: -</div>
   <div id="arousal" class="hide">Arrousal: -</div>
   <div id="Uncomfortable" class="hide">Uncomfortable: -</div>
@@ -198,6 +217,7 @@ body {
 
 
 <script>
+  
   CY.loader()
      .licenseKey("a49a0cf63e37382813f95b8bdea40c304cd3b835586f")
      .addModule(CY.modules().FACE_AGE.name)

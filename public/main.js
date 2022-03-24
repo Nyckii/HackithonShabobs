@@ -15,7 +15,8 @@ $(function () {
     var connected = false;                    // Kennzeichen ob angemeldet
     
     var $currentInput = $usernameInput.focus();
-
+    var myElement = document.getElementById('simple-bar');
+    new SimpleBar(myElement, { autoHide: true });
     var socket = io();
 
 
@@ -122,9 +123,10 @@ $(function () {
     
     // Chat-Nachricht zum Chat-Protokoll anfügen
     function addChatMessage(data) {
+    var $gifDiv = $('<img src="'+ emo.innerHTML + '.gif", class="emotionImages">');
     var $usernameDiv = $('<span class="username"/>').text(data.username);
     var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
-    var $messageDiv = $('<li class="message complete ' + emo.innerHTML + '"/>').append($usernameDiv, $messageBodyDiv);
+    var $messageDiv = $('<li class="message complete ' + emo.innerHTML + '"/>').append($gifDiv, $usernameDiv, $messageBodyDiv);
     $messages.append($messageDiv);
     if(data.username == username){
       $messageDiv.addClass("currentUser");
@@ -135,9 +137,10 @@ $(function () {
 
     // Chat-Nachricht zum Chat-Protokoll anfügen
     function addTmpMessage(data) {
+      var $gifDiv = $('<img src="'+ emo.innerHTML + '.gif", class="emotionImages">');
       var $usernameDiv = $('<span class="username"/>').text(data.username);
       var $messageBodyDiv = $('<span class="messageBody">').text(data.message);
-      var $messageDiv = $('<li class="message unfinished ' + emo.innerHTML + '", id="unsent_' + data.username+ '"\>').append($usernameDiv, $messageBodyDiv);
+      var $messageDiv = $('<li class="message unfinished ' + emo.innerHTML + '", id="unsent_' + data.username+ '"\>').append($gifDiv, $usernameDiv, $messageBodyDiv);
       $messages.append($messageDiv);
 
       if(data.username == username){
@@ -165,7 +168,7 @@ $(function () {
     // Server schickt "login": Anmeldung war erfolgreich
     socket.on('login', function (data) {
     connected = true;
-    log("Welcome to the chat!");
+    log("Willkommen beim Chat!");
     });
     
     // Server schickt "new message": Neue Nachricht zum Chat-Protokoll hinzufügen
