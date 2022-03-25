@@ -1,8 +1,8 @@
 # EmpaChat
 
-With EmpaChat we intend to make chat-communication and interactions online as close to reality as possible. Most of real-time communication happens non-verbally, thus we decided to tackle this problem through the addition of multiple layers to online communication.
+With EmpaChat we intend to make chat communication and interactions online as close to reality as possible. Most of real-time communication happens non-verbally, thus we decided to tackle this problem through the addition of multiple layers to online communication.
 
-So far implemented two main features:
+So far we implemented two main features:
 
 Real-Time Text Display
 
@@ -14,4 +14,4 @@ Our second feature uses the front camera to analyse the facial expressions while
 
 With our features you also don't have to rely on your memory, therefore you can analyze the conversation afterwards and pick up on elements you might would have missed otherwise. Especially for people that have a hard time understanding emotions or facial expressions this could be a door-opener.
 
-In the long run, we hope our technology will impact our online behaviour! Hopefully it will change the way we interact online and make it a more interactive and empathic space!
+In the long run, we hope our technology will impact our online behaviour. Hopefully it will change the way we interact online and make it a more interactive and empathic space!
