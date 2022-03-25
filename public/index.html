@@ -81,8 +81,7 @@ body {
     background: linear-gradient(to right, #dd3e54, #dd3e54); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: black;
     font-size: large;
-    text-align: center;
-    
+    text-align: center; 
 }
 
     
@@ -127,7 +126,6 @@ body {
   height: auto;
   vertical-align: middle;
 }
-
 
 /* Format für Benutzernamen bei der Ausgabe einer Chat-Nachricht */
 
@@ -264,15 +262,14 @@ body {
 
 </div>
 
-
-  <div id="age" class="hide">Age: -</div>
-  <div id="gender" class="hide">Gender: -</div>
   <div id="emotion" class="hide"  >Happy</div>
+  <!--  <div id="age" class="hide">Age: -</div>
+  <div id="gender" class="hide">Gender: -</div>
   <div id="features" class="hide">Face Features: -</div>
   <div id="arousal" class="hide">Arrousal: -</div>
   <div id="Uncomfortable" class="hide">Uncomfortable: -</div>
   <div id="Excited" class="hide">Excited: -</div>
-  <div id="Satisfied" class="hide">Satisfied: -</div>
+  <div id="Satisfied" class="hide">Satisfied: -</div>-->
 
 
 <!-- Programmcode auf der Client-Seite -->
@@ -287,34 +284,32 @@ body {
   
   CY.loader()
      .licenseKey("e09a5d3d51ee442a8bb1ce0bdb52a1dc4257cd78c3b8")
+     .addModule(CY.modules().FACE_EMOTION.name)
      //.addModule(CY.modules().FACE_AGE.name)
      //.addModule(CY.modules().FACE_GENDER.name)
-     .addModule(CY.modules().FACE_EMOTION.name)
      .load()
      .then(({ start, stop }) => start());
   
-  const age_div = document.querySelector("#age");
-  const gen_div = document.querySelector("#gender");
   const emo_div = document.querySelector("#emotion");
+  /*const age_div = document.querySelector("#age");
+  const gen_div = document.querySelector("#gender");
   const fet_div = document.querySelector("#features");
   const arr_div = document.querySelector("#arousal");
   const arr1_div = document.querySelector("#Uncomfortable");
   const arr2_div = document.querySelector("#Excited");
-  const arr3_div = document.querySelector("#Satisfied");
-  
-  /*8window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
-   age_div.innerHTML = 'Age: ' + evt.detail.output.numericAge;
-  });
-  
-  window.addEventListener(CY.modules().FACE_GENDER.eventName, (evt) => {
-   gen_div.innerHTML = 'Gender: ' + evt.detail.output.mostConfident;
-  });*/
+  const arr3_div = document.querySelector("#Satisfied");*/
   
   window.addEventListener(CY.modules().FACE_EMOTION.eventName, (evt) => {
    emo_div.innerHTML = evt.detail.output.dominantEmotion;
   });
 
-  /*window.addEventListener(CY.modules().FACE_FEATURES.eventName, (evt) => {
+  /*8window.addEventListener(CY.modules().FACE_AGE.eventName, (evt) => {
+   age_div.innerHTML = 'Age: ' + evt.detail.output.numericAge;
+  });
+  window.addEventListener(CY.modules().FACE_GENDER.eventName, (evt) => {
+   gen_div.innerHTML = 'Gender: ' + evt.detail.output.mostConfident;
+  });
+  window.addEventListener(CY.modules().FACE_FEATURES.eventName, (evt) => {
     fet_div.innerHTML = 'Attractivness: ' + evt.detail.output.features.Attractive;
   });
   window.addEventListener(CY.modules().FACE_AROUSAL_VALENCE.eventName, (evt) => {
